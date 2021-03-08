@@ -1,17 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SmallEnemyAI : MonoBehaviour
 {
     // Stats
-    int damage = 10;
-    int maxHealth = 100;
-    int health = 100;
-
-    // UI things
-    public Slider HealthBar;
+    int damage;
+    int maxHealth;
+    int health;
 
     // Idle Animation
     public GameObject IdleSprite;
@@ -27,33 +23,13 @@ public class SmallEnemyAI : MonoBehaviour
     void Awake()
     {
         // Randomised stats?
-
-        Attack1Ready.SetActive(false);
-        Attack1Hit.SetActive(false);
-        Attack();
-    }
-
-    void Update()
-    {
-        HealthBar.maxValue = maxHealth;
-        HealthBar.value = health;
-        if (Input.GetKey(KeyCode.E))
-        {
-            health -= 1;
-        }
     }
 
     void Attack()
     {
-        int tempCount = 1; //Random.Range(1, 2);
+        int tempCount = Random.Range(1, 2);
         if (tempCount == 1) { StartCoroutine(Attack1()); }
         if (tempCount == 2) { StartCoroutine(Attack2()); }
-    }
-
-    public IEnumerator Wait()
-    {
-        yield return new WaitForSecondsRealtime(2);
-        Attack();
     }
 
     public IEnumerator Attack1()
@@ -64,10 +40,6 @@ public class SmallEnemyAI : MonoBehaviour
         Attack1Ready.SetActive(false);
         Attack1Hit.SetActive(true);
         // If player is not blocking, deal damage
-        yield return new WaitForSecondsRealtime(0.5f);
-        Attack1Hit.SetActive(false);
-        IdleSprite.SetActive(true);
-        StartCoroutine(Wait());
     }
     public IEnumerator Attack2()
     {
