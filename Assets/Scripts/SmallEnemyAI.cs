@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class SmallEnemyAI : MonoBehaviour
 {
+    PlayerController pC;
+    [SerializeField] GameObject player;
+
     // Stats
-    int damage = 10;
+    int damage = 12;
     int maxHealth = 100;
     int health = 100;
 
@@ -24,6 +27,13 @@ public class SmallEnemyAI : MonoBehaviour
 
     public GameObject BlockSprite;
 
+    // Stun/block variables
+    int timesHit;
+    public bool stunned;
+    public bool canBeHit;
+    public bool gotHit;
+    public bool gotBlocked;
+    
     void Awake()
     {
         // Randomised stats?
@@ -63,11 +73,28 @@ public class SmallEnemyAI : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         Attack1Ready.SetActive(false);
         Attack1Hit.SetActive(true);
-        // If player is not blocking, deal damage
-        yield return new WaitForSecondsRealtime(0.5f);
-        Attack1Hit.SetActive(false);
-        IdleSprite.SetActive(true);
-        StartCoroutine(Wait());
+        if (pC.blocking)
+        {
+            Attack1Hit.SetActive(false);
+            IdleSprite.SetActive(true);
+            canBeHit = true;
+            yield return new WaitForSecondsRealtime(0.3f);
+            if (gotHit)
+            {
+                timesHit += 1;
+
+            }
+            canBeHit = false;
+            yield return new WaitForSecondsRealtime(0.7f);
+        } else
+        {
+            pC.health -= damage;
+            Attack1Hit.SetActive(false);
+            IdleSprite.SetActive(true);
+            StartCoroutine(Wait());
+        }
+        
+        
     }
     public IEnumerator Attack2()
     {
@@ -77,5 +104,10 @@ public class SmallEnemyAI : MonoBehaviour
         Attack2Ready.SetActive(false);
         Attack2Hit.SetActive(true);
         // If player is not dodging, deal damage
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }

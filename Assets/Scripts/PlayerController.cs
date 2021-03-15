@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
     public GameObject BlockSprite;
 
     public bool blocking = false;
-    
+
+    // Health stuff
+    public float health = 100;
+    float maxHealth = 100;
 
     void Update()
     {
