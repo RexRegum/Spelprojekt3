@@ -38,6 +38,7 @@ public class SmallEnemyAI : MonoBehaviour
     
     void Awake()
     {
+        pC = player.GetComponent<PlayerController>();
         // Randomised stats?
 
         Attack1Ready.SetActive(false);
