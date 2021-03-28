@@ -32,7 +32,9 @@ public class SmallEnemyAI : MonoBehaviour
     public bool stunned;
     public bool canBeHit;
     public bool gotHit;
-    public bool gotBlocked;
+    public bool staggered;
+
+    public float sTimer;
     
     void Awake()
     {
@@ -50,6 +52,18 @@ public class SmallEnemyAI : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             health -= 1;
+        }
+
+        if (staggered)
+        {
+            canBeHit = true;
+            sTimer -= Time.deltaTime;
+            if (timesHit >= 3 || sTimer >= 2)
+            {
+                canBeHit = false;
+                staggered = false;
+                timesHit = 0;
+            }
         }
     }
 
@@ -81,7 +95,9 @@ public class SmallEnemyAI : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.3f);
             if (gotHit)
             {
-                timesHit += 1;
+                staggered = true;
+                gotHit = false;
+                yield break;
 
             }
             canBeHit = false;
@@ -96,6 +112,7 @@ public class SmallEnemyAI : MonoBehaviour
         
         
     }
+
     public IEnumerator Attack2()
     {
         Attack2Ready.SetActive(true);
@@ -109,5 +126,7 @@ public class SmallEnemyAI : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        gotHit = true;
+        timesHit += 1;
     }
 }
