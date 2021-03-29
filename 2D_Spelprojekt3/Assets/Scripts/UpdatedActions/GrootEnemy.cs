@@ -11,6 +11,16 @@ public class GrootEnemy : MonoBehaviour
     public float Health;
     public float MaxHP;
 
+    public GameObject left;
+    public GameObject right;
+    public GameObject center;
+    public GameObject recover;
+
+    [HideInInspector]
+    public bool canHit;
+
+    private bool madeAHit;
+
     private int attackToInitiate;
     private Animator animator;
     private List<string> canTransitionTo = new List<string>();
@@ -19,6 +29,7 @@ public class GrootEnemy : MonoBehaviour
 
     private void Awake() 
     {
+        canHit = false;
         animator = gameObject.GetComponent<Animator>();
     }
     void Start()
@@ -28,6 +39,7 @@ public class GrootEnemy : MonoBehaviour
     }
     private IEnumerator WhatToDoNext(float waitTime)
     {
+        transform.position = recover.transform.position;
         animator.Play("EnemyIdle");
         canTransitionTo = LastAttack.canTransitionTo;
         AvailableAttacks.Clear();
@@ -61,15 +73,49 @@ public class GrootEnemy : MonoBehaviour
         attackToInitiate = Random.Range(0, attackList.Count);
         animator.Play(attackList[attackToInitiate].attackAnimation.name);
         LastAttack = attackList[attackToInitiate];
-
+        WhereToMove(attackList[attackToInitiate].moveToSpace);
         yield return new WaitForSeconds(attackList[attackToInitiate].attackAnimation.length);
 
         StartCoroutine(WhatToDoNext(1));
     }
 
-    void Update()
+    void WhereToMove(MovementSpaces spaces)
     {
-        
+        switch (spaces)
+        {
+            default: 
+                break;
+            case MovementSpaces.Right:
+                transform.position = right.transform.position;
+                break;
+            case MovementSpaces.Left:
+                transform.position = left.transform.position;
+                break;
+            case MovementSpaces.Center:
+                transform.position = center.transform.position;
+                break;
+        }
+    }
+
+    public bool CheckIfPlayerCanBeHit(MovementSpaces space)
+    {
+        foreach (var item in LastAttack.attackedSpaces)
+        {
+            if (space == item && madeAHit == false)
+            {
+                madeAHit = !madeAHit;
+                return true;
+            }
+            else
+            { return false;  }
+            
+        }
+        return false;
+    }
+
+    public float ReturnDamage()
+    {
+        return LastAttack.attackDamage;
     }
 
     public void VulnerabilityActivate()
@@ -79,15 +125,15 @@ public class GrootEnemy : MonoBehaviour
 
     public void VulnerabilityDeactivate()
     {
-        //Debug.Log("Can't hit now anymore too bad you monkey");
     }
 
     public void HitActivate()
     {
-        //Debug.Log("You're gonna get hit REAL bad, buddy");
+        madeAHit = false;
+        canHit = true;
     }
     public void HitDeactivate()
     {
-        //Debug.Log("Oh nooo...... PlsdonthitIdidntmeantostabormurderyouimeantnoharmplsrespondtothepleeofanevilmonsterasareasonablehumanbeing");
+        canHit = false;
     }
 }

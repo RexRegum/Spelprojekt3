@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public Image enemyHealth;
     public Image playerHealth;
 
+    private bool gotHit;
 
     // Start is called before the first frame update
     void Awake ()
@@ -23,5 +24,13 @@ public class GameManager : MonoBehaviour
     {
         enemyHealth.fillAmount = Mathf.Clamp(enemy.Health / enemy.MaxHP, 0f, 1f);
         playerHealth.fillAmount = Mathf.Clamp(player.Health / player.MaxHP, 0f, 1f);
+
+        if (enemy.canHit)
+        {
+            if (enemy.CheckIfPlayerCanBeHit(player.currentSpace))
+            {
+                player.Health -= enemy.ReturnDamage();
+            }
+        }
     }
 }

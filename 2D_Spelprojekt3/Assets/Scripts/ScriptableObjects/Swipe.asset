@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e0be71cd5277145bdb98504bb60e04, type: 3}
   m_Name: Swipe
   m_EditorClassIdentifier: 
-  attackDamage: 0
+  attackDamage: 5
   attackAnimation: {fileID: 7400000, guid: c0fc255a780e8d74d813cecca5f021fe, type: 2}
   canTransitionTo: []
-  attackedSpaces: 
+  attackedSpaces: 00000000
+  moveToSpace: 0
   vulnerabilityAngles: 

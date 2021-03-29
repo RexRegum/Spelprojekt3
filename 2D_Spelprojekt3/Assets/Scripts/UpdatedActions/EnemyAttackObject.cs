@@ -13,6 +13,7 @@ public class EnemyAttackObject : ScriptableObject
     //public int activeFramesEnd;
     public List<string> canTransitionTo;
     public List<MovementSpaces> attackedSpaces;
+    public MovementSpaces moveToSpace;
     //public bool hasVulnerability;
     //public int vulnerabilityStart;
     //public int vulnerabilityEnd;

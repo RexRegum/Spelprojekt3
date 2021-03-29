@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e0be71cd5277145bdb98504bb60e04, type: 3}
   m_Name: Punch
   m_EditorClassIdentifier: 
-  attackDamage: 6
+  attackDamage: 7
   attackAnimation: {fileID: 7400000, guid: 0a812db892c46c445a74461ae5e61153, type: 2}
   canTransitionTo: []
-  attackedSpaces: 0300000001000000
+  attackedSpaces: 01000000
+  moveToSpace: 1
   vulnerabilityAngles: 03000000

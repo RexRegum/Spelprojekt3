@@ -252,12 +252,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacks:
-  - {fileID: 11400000, guid: 1ff970fc40d6b4f4d86d9166a004a613, type: 2}
+  - {fileID: 11400000, guid: 7a6a34a04f763bb4ea91ba93f97380f6, type: 2}
   - {fileID: 11400000, guid: acd409128223a6b4e9ddab44667017e0, type: 2}
   - {fileID: 11400000, guid: 7491ff0dfae64214d9d29e6c132f5379, type: 2}
-  - {fileID: 11400000, guid: 7a6a34a04f763bb4ea91ba93f97380f6, type: 2}
   Health: 100
   MaxHP: 100
+  left: {fileID: 481641191}
+  right: {fileID: 839115919}
+  center: {fileID: 1088625253}
+  recover: {fileID: 821807820}
+  canHit: 0
 --- !u!212 &348187827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -723,6 +727,7 @@ MonoBehaviour:
   leftObject: {fileID: 466951066}
   rightObject: {fileID: 769634658}
   centerObject: {fileID: 1611914832}
+  currentSpace: 0
 --- !u!4 &1049580800
 Transform:
   m_ObjectHideFlags: 0

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e0be71cd5277145bdb98504bb60e04, type: 3}
   m_Name: Slam
   m_EditorClassIdentifier: 
-  attackDamage: 0
+  attackDamage: 9
   attackAnimation: {fileID: 7400000, guid: 5a3e1c120d1064042b3ba99f097164af, type: 2}
   canTransitionTo: []
-  attackedSpaces: 
+  attackedSpaces: 03000000
+  moveToSpace: 3
   vulnerabilityAngles: 

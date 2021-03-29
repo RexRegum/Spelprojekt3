@@ -18,11 +18,12 @@ public class PlayerBehaviour : MonoBehaviour
     
 
     List<Actions> actions = new List<Actions>();
-    private MovementSpaces currentSpace;
+    public MovementSpaces currentSpace;
     private bool yeet;
 
     void Awake()
     {
+
         actions.Add(new Actions(leftObject, KeyCode.A, MovementSpaces.Left));
         actions.Add(new Actions(rightObject, KeyCode.D, MovementSpaces.Right));
         actions.Add(new Actions(centerObject, KeyCode.W, MovementSpaces.Center));
