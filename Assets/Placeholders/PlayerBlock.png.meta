@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 68e823e9b15e21944ba14c005fc42121
+guid: c895aa89deacb704ca268bd085208074
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8309294083006618982
-    second: wow2_0
+      213: -6124306816241140203
+    second: PlayerBlock_0
   - first:
-      213: -6164319120436682461
-    second: wow2_1
-  - first:
-      213: -2942171491878534160
-    second: wow2_2
+      213: 928562456398769309
+    second: PlayerBlock_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,55 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wow2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66d5dd7a1fa805370800000000000000
-      internalID: 8309294083006618982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wow2_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32129308b60f37aa0800000000000000
-      internalID: -6164319120436682461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wow2_2
+      name: PlayerBlock_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +107,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f38c4ecd9e4b27d0800000000000000
-      internalID: -2942171491878534160
+      spriteID: 51e717a0667120ba0800000000000000
+      internalID: -6124306816241140203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlayerBlock_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9ca96562aae2ec00800000000000000
+      internalID: 928562456398769309
       vertices: []
       indices: 
       edges: []
@@ -161,7 +137,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: afd344ca91053554ca9784e2eec65caa
+    spriteID: ebc0d7c11e13c4b4bafdbf8a7b9e02fb
     internalID: 0
     vertices: []
     indices: 
